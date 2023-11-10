@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+    server:
+        container_name: server
+        build: ./service/server
+        image: server:kw
+        volumes:
+            - server:/usr/app/srcs
+        networks:
+            - my_network
+        env_file:
+            - .env
+        ports:
+            - "80:3000"
+        restart: always
+        depends_on:
+            - postgres
+
+    postgresql:
+        container_name: postgres
+        build:
+            context: ./service/postgres
+            args:
+                - DB_NAME=${DB_NAME}
+                - POSTGRES_USER_ID=${POSTGRES_USER_ID}
+                - POSTGRES_USER_PASSWORD=${POSTGRES_USER_PASSWORD}
+        image: db:kw
+        expose:
+            - "5432"
+        volumes:
+            - db:/var/lib/postgresql
+        environment:
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        env_file:
+            - .env
+        networks:
+            - my_network
+        restart: always
+
+volumes:
+    server:
+        driver: local
+        driver_opts:
+            type: none
+            o: bind
+            device: "${PWD}/app"
+    db:
+        driver: local
+        driver_opts:
+            type: none
+            o: bind
+            device: "${PWD}/db"
+
+networks:
+    my_network:
+        driver: bridge
