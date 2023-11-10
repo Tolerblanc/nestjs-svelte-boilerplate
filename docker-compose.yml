@@ -1,23 +1,7 @@
 version: "3"
 
 services:
-    server:
-        container_name: server
-        build: ./service/server
-        image: server:kw
-        volumes:
-            - server:/usr/app/srcs
-        networks:
-            - my_network
-        env_file:
-            - .env
-        ports:
-            - "80:3000"
-        restart: always
-        depends_on:
-            - postgres
-
-    postgresql:
+    postgres:
         container_name: postgres
         build:
             context: ./service/postgres
@@ -37,6 +21,22 @@ services:
         networks:
             - my_network
         restart: always
+
+    server:
+        container_name: server
+        build: ./service/server
+        image: server:kw
+        volumes:
+            - server:/usr/app/srcs
+        networks:
+            - my_network
+        env_file:
+            - .env
+        ports:
+            - "80:3000"
+        restart: always
+        depends_on:
+            - postgres
 
 volumes:
     server:
