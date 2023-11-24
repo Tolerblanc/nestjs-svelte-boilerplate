@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content-section {
+            border: 1px solid #ccc;
+            margin: 20px 0;
+            padding: 20px;
+            background-image: linear-gradient(45deg, #f4f4f4 25%, transparent 25%, transparent 50%, #f4f4f4 50%, #f4f4f4 75%, transparent 75%, transparent);
+            background-size: 28px 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #333;
+            color: #fff;
+            border: none;
+            margin-top: 10px;
+        }
+
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>이력서 작성</h1>
+    </header>
+
+    <div class="container">
+        <div class="content-section">
+            <input type="text" placeholder="자기소개" style="width:100%;">
+        </div>
+        <div class="content-section">
+            <input type="text" placeholder="대외활동 / 수상이력" style="width:100%;">
+        </div>
+        <div class="content-section">
+            <input type="text" placeholder="실무경험" style="width:100%;">
+        </div>
+        <div class="content-section">
+            <input type="text" placeholder="세부 교육 사항" style="width:100%;">
+        </div>
+
+        <button class="button" onclick="saveToFile()">Save</button>
+        <button class="button" onclick="goBack()">Back</button>
+    </div>
+
+    <footer class="footer">
+        <div>About</div>
+        <p>Lorem ipsum dolor sit amet...</p>
+        <div>Contact</div>
+        <p>
+            <a href="mailto:user@example.com">Email</a>,
+            <a href="https://twitter.com" target="_blank">Twitter</a>,
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+        </p>
+    </footer>
+
+
+    <script>
+        function saveToFile() {
+            // Implement save to file functionality
+        }
+
+        function goBack() {
+            // Implement back functionality
+        }
+    </script>
+
+</body>
+
+</html>
